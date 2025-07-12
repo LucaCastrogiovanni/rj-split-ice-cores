@@ -1,0 +1,60 @@
+#!/bin/sh
+
+
+#
+# COMPILER 
+#
+F77="gfortran"
+FFLAGS="-ffixed-line-length-none"
+#
+#F77="ifort"                 # FORTRAN COMPILER
+#FFLAGS=" -C -warn all -WB -O0 -132"   # FLAG for over-72 characters long lines
+#FFLAGS=" -xHOST -O3 -ipo -no-prec-div -132"  # FLAGS for FAST and FURIOUS -- no checks at all
+#
+
+#
+# CODE OPTIONS
+#
+cVERS="04"                         #Code version
+COMMON_SUBS_DIR="../subroutines"   #Common subroutines directiory
+#
+#
+#
+
+echo;echo 'Removing old object file (*.o) ... '
+rm -f lib/*.o *.o ../bin/rj_split_${cVERS}
+
+echo;echo Importing COMMON SUBROUTINES ...
+rsync -vz ../${COMMON_SUBS_DIR}/*.f subroutines/
+
+echo;echo Compiling SUBROUTINES ...
+rm -f list.subs.tmp
+ls -1 subroutines/*.f > list.subs.tmp
+nsub=$(cat list.subs.tmp | wc -l )
+isub=1
+while((isub<=nsub));do
+SUB=$(awk -v i=$isub '{if(FNR==i)print $0}' list.subs.tmp)
+echo Compile subroutine: $SUB -- $isub out of $nsub
+
+$F77 $FFLAGS $SUB -c
+
+((isub++))
+done
+
+mv *.o lib/
+
+echo; echo Compile Main Prog: RJ_SPLIT_${cVERS} ...
+$F77 $FFLAGS -o ../bin/rj_split_${cVERS} lib/*.o rj_split_${cVERS}.f
+
+
+echo Done
+echo 'Removing object file (*.o) ... '; echo
+rm -f *.o *__genmod.f90 *__genmod.mod
+
+
+rm -f list.subs.tmp
+
+
+exit
+
+

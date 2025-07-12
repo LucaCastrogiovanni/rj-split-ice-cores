@@ -1,0 +1,8 @@
+c
+c  COMMON BLOCK
+c
+
+c random seed
+      integer  iseed0
+      common /randomtype/iseed0
+

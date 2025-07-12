@@ -1,0 +1,17 @@
+# RMcMC input file
+50          # Number of independent chains
+5000000         # McMC models
+1000000          # Length of the BURN-IN phase (in models)
+10000       # Thinning factor for the McMC
+0                   # 0- POSTERIOR; 1- PRIOR
+123456              # RANDOM SEED for RAN3
+0                   # Level of output: 0- nothing; 1-all
+# RjMcMC move probability
+0.2                 # 1- Perturb the DT hyper-parameter  
+0.2               # 2- Perturb t of one complexity 
+0.2                # 3- Perturb BETA of one complexity
+0.2                # 4- Perturb GAMMA of one complexity
+0.2                 # 5/6- Birth/Death of a new complexity 
+# RjMcMC integration phase: parameters
+40                  # NUMBER of sub-division for numerical integration
+250                 # Number of division for the Integration on the MAP 

@@ -1,0 +1,43 @@
+c
+c COMMON area for OBS and SYN data
+c 
+
+
+c Observables
+
+       integer ndata
+       real*4  obs_D(maxdata,3)
+       real*4  t_min, t_max
+       
+
+
+c Synthetics
+
+       real*4 syn_D(maxdata,1)
+
+c Complementary info
+	
+	integer ndata_temp
+	real*4  temp(maxdata,2)
+	real*4  d_temp(maxdata)
+
+       common /obs_syn_com/obs_D,syn_D,t_min,t_max,ndata,ndata_temp,temp,d_temp
+
+
+c--------------------------------------------------------------------------------------------
+c
+c  The Observed data:
+c
+c         obs_D(i,1)= TIME of the i-th event
+c         obs_D(i,2)= CO2  for the i-th event
+c         obs_D(i,3)= ERR for S-wave splitting for the i-th event
+c
+c--------------------------------------------------------------------------------------------
+c
+c  The Synthetic prediction:
+c
+c    syn_D(i,1)=DT_near, where DT_near is the DT for the nearest nucleus to obs(i,1)
+c    syn_D(i,2)=THETA_near, where THETA_near is the THETA for the nearest nucleus to obs(i,1)
+c
+c---------------------------------------------------------------------------------------------
+

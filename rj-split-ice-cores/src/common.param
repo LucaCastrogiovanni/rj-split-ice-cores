@@ -1,0 +1,27 @@
+c
+c
+c
+c COMMON BLOCK for parameter estimation 
+c
+c MIN/MAX number of complexities
+        integer         min_c, max_c
+c Number of DIMENSIONS for each complexity
+        integer         nd
+c "a-priori" inormation on each dimension of each quality 
+        real*4          apriori_info(nd_max,2)
+c Min dist between two complexities
+        real*4          min_dist_nuc
+c scale factor for MCMC walk -- each para has its own scale factor
+        real*4          sc_rmcmc(nd_max)
+
+        common /param_com/apriori_info,min_dist_nuc,sc_rmcmc,min_c,max_c,nd
+
+c
+c
+c
+c COMMON BLOCK for hyper-parameter estimation
+c
+        real*4          apriori_info_hparam(nhparam_max,2)
+        real*4          sc_hparam(nhparam_max)
+
+        common /hparam_com/apriori_info_hparam,sc_hparam

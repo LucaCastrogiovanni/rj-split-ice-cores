@@ -1,0 +1,12 @@
+c
+c COMMON BLOCK
+c
+
+c Synthetics
+
+        real*4          syn_D0(maxdata,2)
+        real*4          mean_syn_D(maxdata,2)
+        real*4          mean_syn_D2(maxdata,2)
+c
+c             Common block for saving synthetics and compute mean synthetics
+        common /obs_syn_com_2/syn_D0,mean_syn_D,mean_syn_D2

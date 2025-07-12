@@ -1,0 +1,27 @@
+c
+c COMMON BLOCK
+c
+c
+c Common block for recipe ingredients
+
+         integer nchains, ntot, mod_burn_in, nstep, nsample, nstep_map, ndiv
+         logical info, posterior, added_noise
+c
+c MOVE_PROB for MOVE 7 is not considered (move_prob(6) indicates prob for B/D)
+c
+         real*4 move_prob(5)
+
+         common /recipe_com/move_prob,nchains,ntot,mod_burn_in
+         common /recipe_com2/nstep,nsample,nstep_map, ndiv
+         common /recipe_com3/info,posterior,added_noise
+c
+c RECIPE includes seven moves, each diffrent probability:
+c
+c (1) Perturb DT hyper-parameter  (move_value=1)
+c (2) Perturb X of one complexity (move_value=2)
+c (3) Perturb DT of one complexity (move_value=3)
+c (4) Perturb THETA of one complexity (move_value=4)
+c (5) Birth of a new complexity (move_value=5)
+c (6) Death of a new complexity (move_value=6)
+c
+

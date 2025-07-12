@@ -1,0 +1,17 @@
+c
+c COMMON BLOCK
+c
+
+c
+c MOVE_STAT array is encoded as follow:
+c
+c (2) Second number represents the acceptance value
+c -- -1. Accepted WITH Metropolis' rules
+c --  0. Rejected
+c -- +1. Accepted WITHOUT Metropolis' rules
+c
+
+c COMMON BLOCK for statistics
+      integer n_acc, n_acc_rules, n_rej
+      integer move_stat(20,-1:1)
+      common /rmcmc_stat/move_stat,n_acc, n_acc_rules, n_rej

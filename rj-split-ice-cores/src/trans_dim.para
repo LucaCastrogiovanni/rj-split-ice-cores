@@ -1,0 +1,43 @@
+c
+c Include file for trans-D parameters
+c
+
+        implicit none
+
+     
+c nc_max -- maxmimum number of complexities
+c nd_max -- maximum number of dimensions for each complexity
+
+        integer nc_max, nd_max
+        parameter(nc_max=1000)
+        parameter(nd_max=3)
+        
+
+c maxdata -- maximum number of data points
+
+        integer maxdata
+        parameter (maxdata=50000)
+
+c nhparam_max -- maximum number of hyper-parameter
+
+        integer nhparam_max
+        parameter(nhparam_max=1)
+
+c max_n_grid -- maximum number of subdivision in the 2D-grid (for each axis)
+c ndiv_max -- maximum number of subdivision for each integral
+
+        integer max_n_grid, ndiv_max
+        parameter(ndiv_max=40)
+        parameter(max_n_grid=1000)
+
+c Units for reading and writing
+      integer iounit1,iounit2,iounit3
+      parameter (iounit1=1,iounit2=2,iounit3=3)
+
+c namelen is the length of filenames (in characters)
+      integer namelen
+      parameter (namelen=72)
+
+
+
+

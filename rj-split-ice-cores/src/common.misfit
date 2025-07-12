@@ -1,0 +1,10 @@
+c
+c COMMON BLOCK
+c
+
+
+c
+c  Common block for info between iter and iter
+      real*4 lh_norm0, lppd0
+
+      common/misfit_com/lh_norm0,lppd0

@@ -1,0 +1,25 @@
+c
+c COMMON BLOCK
+c
+
+c
+c
+c  Common block for write_integrals subs
+
+      integer bound_nc(2)
+      integer   int_nc(nc_max)
+
+      integer bound_pos(2)
+      integer   int_pos(max_n_grid)
+
+
+      real*4 bound_grid(max_n_grid,3,2)
+      integer  int_grid(max_n_grid,3,ndiv_max)
+
+      real*4 bound_hparam(nhparam_max,2)
+      integer  int_hparam(nhparam_max,ndiv_max)
+
+      common/integral_com1/int_grid,int_nc,int_hparam
+      common/integral_com2/int_pos,bound_pos
+      common/integral_com3/bound_grid,bound_nc,bound_hparam
+
